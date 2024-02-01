@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import IconTextProps from '../types/iconTextProps.type';
 
-const IconText = (props: IconTextProps) => {
+const IconText = (props: IconTextProps): React.JSX.Element => {
   const {iconName, iconColor, bodyText, bodyTextStyles} = props;
   const {container} = styles;
 

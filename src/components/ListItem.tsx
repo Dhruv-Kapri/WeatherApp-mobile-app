@@ -6,6 +6,8 @@ import ItemProps from '../types/itemProps.type';
 const ListItem = (props: ItemProps): React.JSX.Element => {
   const {dt, min, max, condition} = props;
 
+  console.log(condition);
+
   return (
     <View style={styles.itemWrapper}>
       <View style={styles.icon}>

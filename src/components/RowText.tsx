@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import rowTextProps from '../types/rowTextProps.type';
 
-const RowText = (props: rowTextProps) => {
+const RowText = (props: rowTextProps): React.JSX.Element => {
   const {
     containerStyles,
     messageOneStyles,

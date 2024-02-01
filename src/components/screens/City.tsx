@@ -2,14 +2,13 @@ import React from 'react';
 import {
   ImageBackground,
   SafeAreaView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import IconText from '../components/IconText';
+import IconText from '../IconText';
 
-const City = () => {
+const City = (): React.JSX.Element => {
   const {
     container,
     imageLayout,
@@ -26,7 +25,7 @@ const City = () => {
   return (
     <SafeAreaView style={container}>
       <ImageBackground
-        source={require('../assets/city-background.jpg')}
+        source={require('../../assets/city-background.jpg')}
         style={imageLayout}>
         <Text style={[cityName, cityText]}>London</Text>
         <Text style={[country, cityText]}>UK</Text>
