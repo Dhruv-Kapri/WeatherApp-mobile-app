@@ -65,7 +65,6 @@ const UpcomingWeather = (): React.JSX.Element => {
       <ImageBackground
         source={require('../assets/upcoming-background.jpg')}
         style={image}>
-        <Text>Upcoming Weather</Text>
         <FlatList
           data={DATA}
           renderItem={renderItem}

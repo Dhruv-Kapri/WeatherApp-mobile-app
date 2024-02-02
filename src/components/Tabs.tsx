@@ -8,16 +8,26 @@ import UpcomingWeather from '../screens/UpcomingWeather';
 
 const Tab = createBottomTabNavigator();
 
+// const Tabs = ({weather}): React.JSX.Element => {
 const Tabs = (): React.JSX.Element => {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'grey',
+        tabBarStyle: {backgroundColor: 'lightblue'},
+        headerStyle: {
+          backgroundColor: 'lightblue',
+        },
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 25,
+          color: 'tomato',
+        },
       }}>
       <Tab.Screen
         name="Current Weather"
-        component={CurrentWeather}
+        component={CurrentWeather} //delete it later
         options={{
           tabBarIcon: ({focused}: {focused: boolean}) => (
             <Icon
@@ -28,6 +38,9 @@ const Tabs = (): React.JSX.Element => {
           ),
         }}
       />
+      {/* >
+      {() => <CurrentWeather weatherData={weather.list[0]} />}
+      </Tab.Screen> */}
       <Tab.Screen
         name="Upcoming Weather"
         component={UpcomingWeather}
