@@ -6,8 +6,8 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
-import WeatherData from '../../interface/weatherData.interface';
-import ListItem from '../ListItem';
+import WeatherData from '../interface/weatherData.interface';
+import ListItem from '../components/ListItem';
 
 const DATA: WeatherData[] = [
   {
@@ -63,9 +63,8 @@ const UpcomingWeather = (): React.JSX.Element => {
   return (
     <SafeAreaView style={container}>
       <ImageBackground
-        source={require('../../assets/upcoming-background.jpg')}
+        source={require('../assets/upcoming-background.jpg')}
         style={image}>
-        <Text>Upcoming Weather</Text>
         <FlatList
           data={DATA}
           renderItem={renderItem}
