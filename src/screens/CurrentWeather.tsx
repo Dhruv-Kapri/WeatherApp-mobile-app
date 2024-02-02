@@ -1,13 +1,14 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/Fontisto';
-import RowText from '../RowText';
+import Icon from 'react-native-vector-icons/Feather';
+import RowText from '../components/RowText';
+import {weatherType} from '../utilities/weatherType';
 
-const CurrentWeather = (): React.JSX.Element => {
+const CurrentWeather = ({weatherData}): React.JSX.Element => {
   const {
     wrapper,
     container,
-    temp,
+    tempStyle,
     feel,
     highLow,
     highLowWrapper,
@@ -16,26 +17,41 @@ const CurrentWeather = (): React.JSX.Element => {
     message,
   } = styles;
 
+  const {
+    main: {temp, feels_like, temp_max, temp_min},
+    weather,
+  } = weatherData;
+
+  const weatherCondition = weather[0].main;
+
   return (
-    <SafeAreaView style={wrapper}>
+    <SafeAreaView
+      style={[
+        wrapper,
+        {backgroundColor: weatherType[weatherCondition].backgroundColor},
+      ]}>
       <View style={container}>
-        <Icon name="day-sunny" size={100} color="black" />
-        <Text style={temp}> 6</Text>
-        <Text style={feel}>Feels Like - 5</Text>
+        <Icon
+          name={weatherType[weatherCondition].icon}
+          size={100}
+          color="white"
+        />
+        <Text style={tempStyle}>{temp}</Text>
+        <Text style={feel}>{`Feels Like - ${feels_like}`}</Text>
         <RowText
           containerStyles={highLowWrapper}
           messageOneStyles={highLow}
-          messageOne={'High: 8'}
+          messageOne={`High: ${temp_max}`}
           messageTwoStyles={highLow}
-          messageTwo={'Low: 6'}
+          messageTwo={`Low: ${temp_min}`}
         />
       </View>
       <RowText
         containerStyles={bodyWrapper}
         messageOneStyles={description}
-        messageOne={'Its Sunny'}
+        messageOne={weather[0].description}
         messageTwoStyles={message}
-        messageTwo={'Its perfect T-shirt weather'}
+        messageTwo={weatherType[weatherCondition].message}
       />
     </SafeAreaView>
   );
@@ -51,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  temp: {
+  tempStyle: {
     fontSize: 48,
   },
   feel: {
