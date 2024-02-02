@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Fontisto';
-import RowText from '../RowText';
+import RowText from '../components/RowText';
 
 const CurrentWeather = (): React.JSX.Element => {
   const {
